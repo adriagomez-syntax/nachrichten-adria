@@ -1,21 +1,18 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-	--color-primary: #BAFF00;
-	--color-secondary: #00E5FF;
-	--color-text: #F5F7FA;
-	--color-accent-1: #FF6C00;
-	--color-accent-2: #B300FF;
-	--color-accent-3: #399FAA;
-	--color-background: #0B0F1A;
-	--color-background-mid: #11182A;
-	--color-background-card: #18233A;
-	--color-background-dark: #070A12;
+	--color-primary: #1C661C;
+	--color-secondary: #489948;
+	--color-text: #0B2E0B;
 
-	--font-primary: 'Inter', sans-serif;
-	--font-secondary: 'Orbitron';
+	--color-background: #EDFFED;
+	--color-background-mid: #89CC89;
+	--color-background-dark: #043304;
+
+	--font-primary: 'Nunito', sans-serif;
+	--font-secondary: 'Fredoka', sans-serif;
 
 	--text-2xs: 0.5rem;
 }

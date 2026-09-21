@@ -5,7 +5,7 @@ import { routes } from "./assets/routes"
 
 export default function App() {
 	return (
-		<>
+		<div className="min-h-screen h-full flex flex-col font-primary bg-background text-text text-sm">
 			<Header />
 			<Routes>
 				{routes.map(route => {
@@ -16,6 +16,6 @@ export default function App() {
 				})}
 			</Routes>
 			<Footer />
-		</>
+		</div>
 	)
 }
