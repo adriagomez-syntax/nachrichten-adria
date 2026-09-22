@@ -16,11 +16,19 @@ function useNachrichten() {
 			try {
 				const data = await doRequest(
 					"/entries?content_type=nachricht" +
-					"&select=sys.id,fields.titel,fields.teaser" +
+					"&select=sys.id,fields.titel,fields.teaser,fields.hashtags" + //"fields.bild"
 					"&order=-sys.createdAt"
 				)
 
-				setNachrichten(data?.items)
+				setNachrichten(data.items.map(item => (
+					{
+						id: item.sys.id,
+						title: item.fields.titel,
+						teaser: item.fields.teaser,
+						hashtags: item.fields.hashtags,
+						//img: item.fields.bild?.fields.file.url
+					}
+				)))
 			} catch(error) {
 				if (error.name !== "AbortError") { setErrorMsg(error.message) }
 			} finally {
@@ -32,7 +40,7 @@ function useNachrichten() {
 
 	}, [])
 
-	return [ nachrichten, loading, errorMsg ]
+	return { nachrichten, loading, errorMsg }
 }
 
 export default useNachrichten

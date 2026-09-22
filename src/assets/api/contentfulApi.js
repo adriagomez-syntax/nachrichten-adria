@@ -1,4 +1,4 @@
-import { env } from "./mockEnv"
+import { env } from "../../lib/mockEnv"
 
 const BASE_URL = "https://cdn.contentful.com/spaces"
 const SPACE = env.SPACE_ID

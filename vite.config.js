@@ -8,7 +8,7 @@ export default defineConfig({
 	plugins: [react(), tailwindcss()],
 	resolve: {
 		alias: {
-			"cloudflare:workers": path.resolve('./src/assets/api/mockEnv.js')
+			"cloudflare:workers": path.resolve('./src/lib/mockEnv.js')
 		}
 	}
 })

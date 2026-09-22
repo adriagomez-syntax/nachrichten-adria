@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 60" width="170" height="60">
+  <defs>
+    <linearGradient id="retroGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#489948" />
+      <stop offset="100%" stop-color="#1C661C" />
+    </linearGradient>
+  </defs>
+  <!-- Pixel arcade gamepad / alien mascot -->
+  <rect x="10" y="14" width="36" height="32" rx="6" fill="#043304" />
+  <rect x="13" y="17" width="30" height="26" rx="4" fill="url(#retroGreen)" />
+  <!-- D-pad pixel style -->
+  <rect x="17" y="27" width="8" height="6" fill="#EDFFED" />
+  <rect x="20" y="24" width="6" height="12" fill="#EDFFED" />
+  <!-- Buttons -->
+  <circle cx="34" cy="27" r="2.5" fill="#EDFFED" />
+  <circle cx="38" cy="33" r="2.5" fill="#EDFFED" />
+  <!-- Retro pixel antenna/accent -->
+  <rect x="26" y="8" width="4" height="6" fill="#043304" />
+  <rect x="24" y="6" width="8" height="3" fill="#489948" />
+  
+  <!-- Text: RetroPixel -->
+  <text x="56" y="34" font-family="'Fredoka', sans-serif" font-size="22" font-weight="700" fill="#043304" letter-spacing="-0.5">Retro<tspan fill="#1C661C">Pixel</tspan></text>
+  <text x="56" y="47" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" fill="#EDFFED" letter-spacing="2">MAGAZIN • DE</text>
+</svg>
