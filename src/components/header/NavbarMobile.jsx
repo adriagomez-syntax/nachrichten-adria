@@ -1,10 +1,10 @@
 import { NavLink } from "react-router"
-import { routes } from "../../assets/routes"
+import { ROUTE_TYPE, routes } from "../../assets/routes"
 import LinkAnim from "../common/LinkAnim"
 
 export default function NavbarMobile() {
 	
-	const filteredRoutes = routes.filter((route) => route.navbar)
+	const filteredRoutes = routes.filter((route) => route.type === ROUTE_TYPE.NAVBAR)
 	
 	return (
 		<nav className="flex flex-col gap-2">

@@ -9,7 +9,7 @@ export default function SidebarMenu({ open, setOpen }) {
 				<div className="flex flex-col gap-6 h-full">
 					<Search />
 					<div className="flex flex-col gap-4">
-						<h2 className="text-light uppercase font-secondary italic tracking-widest text-xs">// Hauptmenü</h2>
+						<hr />
 						<NavbarMobile />
 					</div>
 				</div>

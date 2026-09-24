@@ -1,10 +1,10 @@
 import { NavLink } from "react-router"
-import { routes } from "../../assets/routes"
+import { ROUTE_TYPE, routes } from "../../assets/routes"
 import LinkAnim from "../common/LinkAnim"
 
 export default function Navbar({ className = "" }) {
 	
-	const filteredRoutes = routes.filter((route) => route.navbar)
+	const filteredRoutes = routes.filter((route) => route.type === ROUTE_TYPE.NAVBAR)
 	const activeEffect = {
 		background: "bg-background-dark",
 		shadowEffect: "shadow-[1px_1px_0_0]",
