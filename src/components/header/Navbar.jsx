@@ -2,7 +2,7 @@ import { NavLink } from "react-router"
 import { routes } from "../../assets/routes"
 import LinkAnim from "../common/LinkAnim"
 
-export default function Navbar() {
+export default function Navbar({ className = "" }) {
 	
 	const filteredRoutes = routes.filter((route) => route.navbar)
 	const activeEffect = {
@@ -12,10 +12,10 @@ export default function Navbar() {
 	}
 	
 	return (
-		<nav className="flex-1 w-full flex justify-center gap-2 font-secondary uppercase">
+		<nav className={`${className} flex-1 w-full flex justify-center gap-2 font-secondary uppercase`}>
 			{filteredRoutes.map((route) => (
-				<LinkAnim className="flex items-center">
-					<NavLink key={ route.name } to={ route.path } className={({ isActive }) => (isActive ? `${activeEffect.background} ${activeEffect.shadowEffect} ${activeEffect.shadowColor}` : `hover:${activeEffect.background} hover:${activeEffect.shadowEffect} hover:${activeEffect.shadowColor}`) + " rounded-sm px-2 py-1 text-shadow-2xs"}>
+				<LinkAnim key={ route.name } className="flex items-center">
+					<NavLink to={ route.path } className={({ isActive }) => (isActive ? `${activeEffect.background} ${activeEffect.shadowEffect} ${activeEffect.shadowColor}` : `hover:${activeEffect.background} hover:${activeEffect.shadowEffect} hover:${activeEffect.shadowColor}`) + " rounded-sm px-2 py-1 text-shadow-2xs"}>
 						<div>{ route.name }</div>
 					</NavLink>
 				</LinkAnim>

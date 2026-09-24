@@ -1,22 +1,31 @@
 import { FaSearch } from "react-icons/fa";
 import Input from "../common/Input";
 import ButtonPrimary from "../common/ButtonPrimary";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ListContext from "../../context/ListContext";
 
-export default function Search() {
+export default function Search({ className = "" }) {
 	
-	const [searchValue, setSearchValue] = useState("")
-	
+	const { setSearchValue } = useContext(ListContext)
+	const [ query, setQuery] = useState("")
+
+	function onSubmit(event) {
+		event.preventDefault()
+
+		setSearchValue(query)
+	}
+
 	return (
-		<div className="flex gap-2">
+		<form onSubmit={ onSubmit } className={`${className} min-w-0 flex gap-2`}>
 			<Input 
-				value={ searchValue }
-				onChange={ setSearchValue }
+				className="w-full"
+				value={ query }
+				onChange={ setQuery }
 				icon={ FaSearch } 
 			/>
-			<ButtonPrimary>
+			<ButtonPrimary type="submit">
 				Los
 			</ButtonPrimary>
-		</div>
+		</form>
 	)
 }

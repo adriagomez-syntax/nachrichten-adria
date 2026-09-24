@@ -13,7 +13,7 @@ export default function Card({ title, teaser, img, hashtags = [], path = "#", cl
 					</li>
 				))}
 			</ul>
-			<h1 className="text-primary text-2xl">{ title }</h1>
+			<h1 className="font-bold text-primary text-2xl">{ title }</h1>
 			<p>{ teaser }</p>
 			<Link to={ path }>
 				<p className="font-secondary text-secondary text-xs hover:underline">Weiterlesen...</p>
