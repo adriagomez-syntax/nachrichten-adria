@@ -18,7 +18,7 @@ function useNachrichtenSDK(query = "", hash = "", sort = "-sys.createdAt", limit
 			try {
 				const filter = {
 					content_type: "nachricht",
-					select: "sys.id,fields.titel,fields.teaser,fields.hashtags",
+					select: "sys.id,fields.titel,fields.teaser,fields.hashtags,sys.createdAt",
 					query: query,
 					order: sort,
 					limit: limit,
@@ -40,7 +40,8 @@ function useNachrichtenSDK(query = "", hash = "", sort = "-sys.createdAt", limit
 						id: item.sys.id,
 						title: item.fields.titel,
 						teaser: item.fields.teaser,
-						hashtags: item.fields.hashtags
+						hashtags: item.fields.hashtags,
+						date: item.sys.createdAt
 					}
 				)))
 

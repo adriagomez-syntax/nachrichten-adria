@@ -17,6 +17,7 @@ export default function GalerieList({ assets, pageNum, setPageNum, limit, total 
 								img={ asset.img }
 								title={ asset.title }
 								teaser={ asset.description }
+								date={ asset.date }
 							/>
 						))}
 					</div>

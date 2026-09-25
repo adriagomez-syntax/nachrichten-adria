@@ -28,7 +28,8 @@ function useGallerie(query = "", limit = 1, skip = 0) {
 					id: asset.sys.id,
 					title: asset.fields.title,
 					description: asset.fields.description,
-					img: `https:${asset.fields.file.url}`
+					img: `https:${asset.fields.file.url}`,
+					date: asset.sys.createdAt
 				})))
 
 				setTotal(data.total)

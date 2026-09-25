@@ -14,6 +14,7 @@ export default function CardList({ nachrichten, pageNum, setPageNum, totalItems 
 							title={ nachricht.title } 
 							teaser={ nachricht.teaser }
 							hashtags={ nachricht.hashtags }
+							date={ nachricht.date }
 							path={`/nachricht/${nachricht.id}`}
 						/>
 					))
