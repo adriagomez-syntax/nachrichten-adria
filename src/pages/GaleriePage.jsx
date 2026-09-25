@@ -20,7 +20,7 @@ export default function GaleriePage() {
 	return (
 		<Main className="flex flex-col gap-4">
 			<h1 className="font-bold text-primary text-3xl">Galerie</h1>
-			<h2 className="text-secondary"> Erkunde historische Screenshots, Boxarts, Arcade-Flyer und seltene Handheld-Aufnahmen aus vier Dekaden Videospielgeschichte. </h2>
+			<h2 className="text-secondary">Erkunde historische Screenshots, Boxarts, Arcade-Flyer und seltene Handheld-Aufnahmen aus vier Dekaden Videospielgeschichte.</h2>
 			<FilterGalerie query={ query } setQuery={ setQuery } limit={ limit } setLimit={ setLimit }  />
 			{loading
 				? <Loader />
