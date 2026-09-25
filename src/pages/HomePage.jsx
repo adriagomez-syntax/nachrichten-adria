@@ -7,7 +7,7 @@ export default function HomePage() {
 	return (
 		<Main className="flex flex-col gap-6">
 			<FilterSection />
-			<div className="flex flex-col gap-4 md:flex-row md:justify-between">
+			<div className="flex flex-col gap-6 md:flex-row md:justify-between">
 				<ListSection />
 				<LiveTicker />
 			</div>

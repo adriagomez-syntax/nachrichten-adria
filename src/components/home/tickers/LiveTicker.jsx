@@ -8,7 +8,7 @@ export default function LiveTicker() {
 	const { tickers, loading, errorMsg } = useTicker() 
 	
 	return (
-		<section className="p-4 flex flex-col gap-4 bg-background-mid rounded-sm">
+		<section className="p-4 flex flex-col gap-4 bg-background-mid shadow-[3px_3px_0_0] shadow-background-dark rounded-sm md:w-1/3">
 			<h1 className="pb-2 font-secondary text-primary text-2xl border-b border-primary/20">■ Eilmeldungen & Ticker</h1>
 			<div>
 				{ loading
@@ -19,7 +19,7 @@ export default function LiveTicker() {
 							title="Game Over! Ein Fehler ist aufgetreten"
 							info={ errorMsg }
 						/>
-						: <TickerList tickers={ tickers } />
+						: tickers && <TickerList tickers={ tickers } />
 				}
 			</div>
 		</section>

@@ -12,7 +12,7 @@ export default function PostSection({ title, teaser, body, hashtags, img, date }
 			</div>
 			<div className="border-8 border-background-dark shadow-[3px_3px_0_0] shadow-background-dark rounded-sm overflow-hidden">
 				<img 
-					src={ img } 
+					src={`${img}?w=1200&fm=webp&q=80`} 
 					className="hover:transform hover:scale-105"
 					alt={ title }
 				/>
