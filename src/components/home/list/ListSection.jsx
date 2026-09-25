@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ListContext from "../../../context/ListContext";
 import useNachrichten from "../../../hooks/useNachrichten"
 import CardList from "./CardList";
@@ -10,6 +10,12 @@ export default function ListSection() {
 	const [pageNum, setPageNum] = useState(0)
 	const { searchValue, hashtagValue, sortValue, limitValue } = useContext(ListContext)
 	const { nachrichten, loading, errorMsg, total } = useNachrichten(searchValue, hashtagValue, sortValue, limitValue, pageNum * limitValue);
+
+	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
+		setPageNum(prev => (prev !== 0 ? 0 : prev))
+
+	}, [limitValue])
 
 	return (
 		<section className="flex-1 flex">

@@ -28,8 +28,6 @@ function useNachricht(id) {
 					return
 				}
 
-				console.log(data)
-
 				const item = data.items[0]
 				const bildId = item.fields.bild?.sys.id
 				const asset = data.includes?.Asset?.find(a => a.sys.id === bildId)

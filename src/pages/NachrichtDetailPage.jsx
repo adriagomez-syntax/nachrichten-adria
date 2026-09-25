@@ -14,7 +14,7 @@ export default function NachrichtDetailPage() {
 	const { loadedData, loading, errorMsg } = useNachricht(postId)
 	
 	return (
-		<Main className="flex flex-col gap-4 md:mx-[15vw]">
+		<Main className="flex flex-col gap-4">
 			<Link to="/">
 				<ButtonPrimary className="flex gap-2 items-center">
 					<FaArrowLeft />

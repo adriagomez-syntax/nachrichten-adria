@@ -11,7 +11,11 @@ export default function PostSection({ title, teaser, body, hashtags, img, date }
 				<p>{date}</p>
 			</div>
 			<div className="border-8 border-background-dark shadow-[3px_3px_0_0] shadow-background-dark rounded-sm overflow-hidden">
-				<img src={ img } className="hover:transform hover:scale-105" />
+				<img 
+					src={ img } 
+					className="hover:transform hover:scale-105"
+					alt={ title }
+				/>
 			</div>
 			<div className="p-4 bg-background-mid/20 shadow-[3px_3px_0_0] shadow-background-dark">
 				{ teaser }
