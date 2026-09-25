@@ -3,9 +3,11 @@ import Input from "../common/Input";
 import ButtonPrimary from "../common/ButtonPrimary";
 import { useContext, useState } from "react";
 import ListContext from "../../context/ListContext";
+import { useNavigate } from "react-router";
 
 export default function Search({ className = "" }) {
 	
+	const navigate = useNavigate()
 	const { setSearchValue } = useContext(ListContext)
 	const [ query, setQuery] = useState("")
 
@@ -13,6 +15,7 @@ export default function Search({ className = "" }) {
 		event.preventDefault()
 
 		setSearchValue(query)
+		navigate("/")
 	}
 
 	return (
