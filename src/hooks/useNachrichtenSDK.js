@@ -6,14 +6,14 @@ function useNachrichtenSDK(query = "", hash = "", sort = "-sys.createdAt", limit
 	const [total, setTotal] = useState(0)
 	const [nachrichten, setNachrichten] = useState(null)
 	const [loading, setLoading] = useState(false)
-	const [errorMsg, setErrorMsg] = useState(null)
+	const [error, setError] = useState(null)
 
 	useEffect(() => {
 
 		async function load() {
 
 			setLoading(true)
-			setErrorMsg(null)
+			setError(null)
 
 			try {
 				const filter = {
@@ -49,9 +49,9 @@ function useNachrichtenSDK(query = "", hash = "", sort = "-sys.createdAt", limit
 				if (err.name !== "AbortError") {
 					try {
 						const parsed = JSON.parse(err.message)
-						setErrorMsg(parsed.message)
+						setError(parsed)
 					} catch(e) {
-						setErrorMsg(e)
+						setError(e)
 					}
 				}
 			} finally {
@@ -62,7 +62,7 @@ function useNachrichtenSDK(query = "", hash = "", sort = "-sys.createdAt", limit
 		load()
 	}, [query, hash, sort, limit, skip])
 
-	return { nachrichten, total, loading, errorMsg }
+	return { nachrichten, total, loading, error }
 }
 
 export default useNachrichtenSDK

@@ -5,14 +5,14 @@ function useNachrichtSDK(id) {
 
 	const [loadedData, setLoadedData] = useState(null)
 	const [loading, setLoading] = useState(false)
-	const [errorMsg, setErrorMsg] = useState(null)
+	const [error, setError] = useState(null)
 
 	useEffect(() => {
 
 		async function load() {
 
 			setLoading(true)
-			setErrorMsg(null)
+			setError(null)
 
 			try {
 				const data = await client.getEntries({
@@ -40,9 +40,9 @@ function useNachrichtSDK(id) {
 				if (err.name !== "AbortError") {
 					try {
 						const parsed = JSON.parse(err.message)
-						setErrorMsg(parsed.message)
+						setError(parsed)
 					} catch(e) {
-						setErrorMsg(e)
+						setError(e)
 					}
 				}
 			} finally {
@@ -55,7 +55,7 @@ function useNachrichtSDK(id) {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	return { loadedData, loading, errorMsg }
+	return { loadedData, loading, error }
 }
 
 export default useNachrichtSDK

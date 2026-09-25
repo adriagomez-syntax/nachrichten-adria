@@ -13,7 +13,7 @@ export default function NachrichtDetailPage() {
 	const params = useParams()
 	const postId = params.id
 	//const { loadedData, loading, errorMsg } = useNachricht(postId)
-	const { loadedData, loading, errorMsg } = useNachrichtSDK(postId)
+	const { loadedData, loading, error } = useNachrichtSDK(postId)
 	
 	return (
 		<Main className="flex flex-col gap-4">
@@ -25,11 +25,11 @@ export default function NachrichtDetailPage() {
 			</Link>
 			{loading
 				? <Loader />
-				: errorMsg
+				: error
 					? <ErrorMsg
-						code={ errorMsg }
+						code={error.status}
 						title="Game Over! Ein Fehler ist aufgetreten"
-						info="Drück ‘Start’ und versuch’s später nochmal!"
+						info={ error.message }
 					/>
 					: loadedData && <PostSection {...loadedData} />
 			}

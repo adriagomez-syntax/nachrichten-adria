@@ -11,7 +11,7 @@ export default function ListSection() {
 	const [pageNum, setPageNum] = useState(0)
 	const { searchValue, hashtagValue, sortValue, limitValue } = useContext(ListContext)
 	//const { nachrichten, loading, errorMsg, total } = useNachrichten(searchValue, hashtagValue, sortValue, limitValue, pageNum * limitValue);
-	const { nachrichten, loading, errorMsg, total } = useNachrichtenSDK(searchValue, hashtagValue, sortValue, limitValue, pageNum * limitValue);
+	const { nachrichten, loading, error, total } = useNachrichtenSDK(searchValue, hashtagValue, sortValue, limitValue, pageNum * limitValue);
 
 	useEffect(() => {
 		// eslint-disable-next-line react-hooks/set-state-in-effect
@@ -23,11 +23,12 @@ export default function ListSection() {
 		<section className="flex-1 flex">
 			{loading
 				? <Loader className="min-h-40" />
-				: errorMsg
+				: error
 					? <ErrorMsg 
-						code={ errorMsg }
+						code={error.status}
 						title="Game Over! Ein Fehler ist aufgetreten"
-						info="Drück ‘Start’ und versuch’s später nochmal!" />
+						info={ error.message }
+					/>
 					: <CardList nachrichten={ nachrichten } pageNum={ pageNum } setPageNum={ setPageNum } totalItems={ total } />
 			}
 		</section>
