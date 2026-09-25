@@ -1,3 +1,4 @@
+import useAutoRefresh from "../../../hooks/useAutoRefresh"
 import useTicker from "../../../hooks/useTicker"
 import ErrorMsg from "../../common/ErrorMsg"
 import Loader from "../../common/Loader"
@@ -5,7 +6,8 @@ import TickerList from "./TickerList"
 
 export default function LiveTicker() {
 	
-	const { tickers, loading, error } = useTicker() 
+	const { tickers, loading, error, load } = useTicker()
+	useAutoRefresh(load, 30000)
 	
 	return (
 		<section className="p-4 flex flex-col gap-4 bg-background-mid shadow-[3px_3px_0_0] shadow-background-dark rounded-sm md:w-1/3">
