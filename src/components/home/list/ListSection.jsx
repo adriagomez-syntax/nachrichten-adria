@@ -1,0 +1,27 @@
+import { useContext, useState } from "react";
+import ListContext from "../../../context/ListContext";
+import useNachrichten from "../../../hooks/useNachrichten"
+import CardList from "./CardList";
+import Loader from "../../common/Loader";
+import ErrorMsg from "../../common/ErrorMsg";
+
+export default function ListSection() {
+	
+	const [pageNum, setPageNum] = useState(0)
+	const { searchValue, hashtagValue, sortValue, limitValue } = useContext(ListContext)
+	const { nachrichten, loading, errorMsg, total } = useNachrichten(searchValue, hashtagValue, sortValue, limitValue, pageNum * limitValue);
+
+	return (
+		<section className="flex-1 flex">
+			{loading
+				? <Loader className="min-h-40" />
+				: errorMsg
+					? <ErrorMsg 
+						code={ errorMsg }
+						title="Game Over! Ein Fehler ist aufgetreten"
+						info="Drück ‘Start’ und versuch’s später nochmal!" />
+					: <CardList nachrichten={ nachrichten } pageNum={ pageNum } setPageNum={ setPageNum } totalItems={ total } />
+			}
+		</section>
+	)
+}

@@ -1,0 +1,6 @@
+[
+	{ "name": "Neueste", "sort": "-sys.createdAt" },
+	{ "name": "Älteste", "sort": "sys.createdAt" },
+	{ "name": "A–Z", "sort": "fields.titel" },
+	{ "name": "Z-A", "sort": "-fields.titel" }
+]

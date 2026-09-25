@@ -17,9 +17,8 @@ export default function LinksFooter() {
 						const Icon = route.icon
 						
 						return (
-							<Link to={ route.path }>
+							<Link key={ route.name }  to={ route.path }>
 								<li 
-									key={ route.name } 
 									className="p-2 border border-primary hover:bg-background-dark hover:text-background rounded-sm transition duration-300 md:p-0 md:border-0 md:hover:underline md:hover:bg-transparent md:hover:text-inherit"
 									title={ route.name }
 								>

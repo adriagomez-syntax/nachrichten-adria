@@ -7,7 +7,12 @@ const TOKEN = env.TOKEN
 export async function doRequest(url, signal = null) {
 	const full_url = `${BASE_URL}/${SPACE}/environments/master/${url}&access_token=${TOKEN}`
 	const data = await fetch(full_url, { signal: signal })
-		.then((resp) => resp.json())
+		.then((resp) => {
+			
+			if (!resp.ok) { throw new Error(resp.status) }
+			
+			return resp.json()
+		})
 
 	return data
 }
