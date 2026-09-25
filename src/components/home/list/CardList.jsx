@@ -8,12 +8,11 @@ export default function CardList({ nachrichten, pageNum, setPageNum, totalItems 
 		<div className="flex-1 flex flex-col gap-8">
 			<div className="flex flex-col gap-4">
 				<h1 className="font-secondary text-primary text-2xl">■ Neueste Beiträge</h1>
-				{nachrichten.length > 0
+				{nachrichten && nachrichten.length > 0
 					? nachrichten.map(nachricht => (
 						<Card key={ nachricht.id }
 							title={ nachricht.title } 
-							teaser={ nachricht.teaser } 
-							img={ nachricht.img }
+							teaser={ nachricht.teaser }
 							hashtags={ nachricht.hashtags }
 							path={`/nachricht/${nachricht.id}`}
 						/>

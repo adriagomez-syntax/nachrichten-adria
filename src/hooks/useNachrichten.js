@@ -10,6 +10,8 @@ function useNachrichten(query = "", hash = "", sort = "-sys.createdAt", limit = 
 
 	useEffect(() => {
 
+		const controller = new AbortController()
+		
 		async function load() {
 
 			setLoading(true)
@@ -24,7 +26,14 @@ function useNachrichten(query = "", hash = "", sort = "-sys.createdAt", limit = 
 					(sort && `&order=${sort}`) +
 					(limit > 0 ? `&limit=${limit}` : "") +
 					(skip > 0 ? `&skip=${skip}` : "")
+					, controller.signal
 				)
+
+				if (!data || !data.items) {
+					setNachrichten(null)
+					setTotal(0)
+					return
+				}
 
 				setNachrichten(data.items.map(item => (
 					{
@@ -44,6 +53,8 @@ function useNachrichten(query = "", hash = "", sort = "-sys.createdAt", limit = 
 		}
 
 		load()
+
+		return () => controller.abort()
 
 	}, [query, hash, sort, limit, skip])
 
