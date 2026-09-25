@@ -20,9 +20,9 @@ export default function BasisAbout() {
 					const Icon = item.icon
 
 					return (
-						<div key={ item.title } className="flex flex-col gap-2 p-4 bg-background-mid shadow-[3px_3px_0_0] shadow-background-dark rounded-sm">
+						<div key={ item.title } className="flex flex-col items-center gap-2 p-4 bg-background-mid shadow-[3px_3px_0_0] shadow-background-dark rounded-sm">
 							<Icon className="p-2 w-10 h-fit bg-background-dark text-background rounded-sm" />
-							<h3 className="font-secondary text-2xl">{ item.title }</h3>
+							<h3 className="font-secondary text-2xl text-center">{ item.title }</h3>
 							<p className="font-light">{ item.text }</p>
 						</div>
 					)
