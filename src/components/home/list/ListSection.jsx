@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import ListContext from "../../../context/ListContext";
-import useNachrichten from "../../../hooks/useNachrichten"
 import CardList from "./CardList";
 import Loader from "../../common/Loader";
 import ErrorMsg from "../../common/ErrorMsg";
+//import useNachrichten from "../../../hooks/useNachrichten"
+import useNachrichtenSDK from "../../../hooks/useNachrichtenSDK";
 
 export default function ListSection() {
 	
 	const [pageNum, setPageNum] = useState(0)
 	const { searchValue, hashtagValue, sortValue, limitValue } = useContext(ListContext)
-	const { nachrichten, loading, errorMsg, total } = useNachrichten(searchValue, hashtagValue, sortValue, limitValue, pageNum * limitValue);
+	//const { nachrichten, loading, errorMsg, total } = useNachrichten(searchValue, hashtagValue, sortValue, limitValue, pageNum * limitValue);
+	const { nachrichten, loading, errorMsg, total } = useNachrichtenSDK(searchValue, hashtagValue, sortValue, limitValue, pageNum * limitValue);
 
 	useEffect(() => {
 		// eslint-disable-next-line react-hooks/set-state-in-effect

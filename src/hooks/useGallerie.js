@@ -18,7 +18,8 @@ function useGallerie(query = "", limit = 1, skip = 0) {
 			try
 			{
 				const data = await client.getAssets({
-					query: query,
+					"fields.title[match]": query,
+					"fields.description[match]": query,
 					limit: limit,
 					skip: skip
 				})
@@ -32,10 +33,10 @@ function useGallerie(query = "", limit = 1, skip = 0) {
 
 				setTotal(data.total)
 
-			} catch(error) {
-				if (error.name !== "AbortError") {
+			} catch(err) {
+				if (err.name !== "AbortError") {
 					try {
-						const parsed = JSON.parse(error.message)
+						const parsed = JSON.parse(err.message)
 						setError(parsed)
 					} catch(e) {
 						setError(e)

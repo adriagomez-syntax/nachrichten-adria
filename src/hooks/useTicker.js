@@ -5,14 +5,14 @@ function useTicker() {
 
 	const [tickers, setTickers] = useState(null)
 	const [loading, setLoading] = useState(false)
-	const [errorMsg, setErrorMsg] = useState(null)
+	const [error, setError] = useState(null)
 
 	useEffect(() => {
 		
 		async function load() {
 			
 			setLoading(true)
-			setErrorMsg(null)
+			setError(null)
 
 			try
 			{
@@ -27,8 +27,15 @@ function useTicker() {
 					text: item.fields.text,
 					date: item.sys.createdAt
 				})))
-			} catch(error) {
-				if (error.name !== "AbortError") { setErrorMsg(error.message) }
+			} catch(err) {
+				if (err.name !== "AbortError") {
+					try {
+						const parsed = JSON.parse(err.message)
+						setError(parsed)
+					} catch(e) {
+						setError(e)
+					}
+				}
 			} finally {
 				setLoading(false)
 			}
@@ -37,7 +44,7 @@ function useTicker() {
 		load()
 	}, [])
 
-	return { tickers, loading, errorMsg }
+	return { tickers, loading, error }
 }
 
 export default useTicker

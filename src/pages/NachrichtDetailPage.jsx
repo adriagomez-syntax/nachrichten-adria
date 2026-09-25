@@ -1,17 +1,19 @@
 import { Link, useParams } from "react-router";
 import Main from "../components/common/Main";
-import useNachricht from "../hooks/useNachricht";
 import Loader from "../components/common/Loader";
 import ErrorMsg from "../components/common/ErrorMsg";
 import PostSection from "../components/details/PostSection";
 import { FaArrowLeft } from "react-icons/fa";
 import ButtonPrimary from "../components/common/ButtonPrimary";
+//import useNachricht from "../hooks/useNachricht";
+import useNachrichtSDK from "../hooks/useNachrichtSDK";
 
 export default function NachrichtDetailPage() {
 	
 	const params = useParams()
 	const postId = params.id
-	const { loadedData, loading, errorMsg } = useNachricht(postId)
+	//const { loadedData, loading, errorMsg } = useNachricht(postId)
+	const { loadedData, loading, errorMsg } = useNachrichtSDK(postId)
 	
 	return (
 		<Main className="flex flex-col gap-4">
