@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import Image from "./Image";
-import { formatDate } from "../../assets/utils";
+import { fullDate } from "../../assets/utils";
 
 export default function Card({ title, teaser, hashtags = [], path, img, date, className = "" }) {
 	return (
@@ -21,7 +21,7 @@ export default function Card({ title, teaser, hashtags = [], path, img, date, cl
 				</ul>
 			}
 			<h1 className="font-bold text-primary text-2xl">{ title }</h1>
-			{date && <span className="text-2xs text-secondary">{ formatDate(date) }</span>}
+			{date && <span className="text-2xs text-secondary italic">{ fullDate(date) }</span>}
 			<p>{ teaser }</p>
 			{path &&
 				<Link to={ path }>

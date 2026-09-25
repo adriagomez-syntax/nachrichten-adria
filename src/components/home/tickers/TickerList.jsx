@@ -1,4 +1,4 @@
-import { formatDate } from "../../../assets/utils";
+import { dateToNow } from "../../../assets/utils";
 import ErrorMsg from "../../common/ErrorMsg";
 
 export default function TickerList({ tickers }) {
@@ -9,7 +9,7 @@ export default function TickerList({ tickers }) {
 					<li key={ ticker.id } className={`${index < tickers.length - 1 && "pb-2 border-b border-primary/20"} flex flex-col gap-1`}>
 						<div className="flex gap-2 justify-between items-center">
 							<h2 className="uppercase text-primary text-xs">{ ticker.title }</h2>
-							<span className="p-2 bg-background-dark text-background text-2xs rounded-sm">{ formatDate(ticker.date) }</span>
+							<span className="p-2 bg-background-dark text-background text-2xs rounded-sm">{ dateToNow(ticker.date) }</span>
 						</div>
 						<p>{ ticker.text }</p>
 					</li>
