@@ -5,7 +5,17 @@ export default function Card({ title, teaser, hashtags = [], path, img, classNam
 		<div className={`${className} flex flex-col gap-2 p-4 border border-background-mid shadow-md shadow-background-dark rounded-lg`}>
 			{ img &&
 				<div className="overflow-hidden rounded-sm">
-					<img src={ img } alt={ title } className="hover:transform hover:scale-105" />
+					<img 
+						className="hover:transform hover:scale-105"
+						src={`${img}?w=1200&fm=jpg&q=100`}
+						srcSet={`
+							${img}?w=500&fm=webp&q=50 500w,
+							${img}?w=800&fm=webp&q=80 800w,
+							${img}?w=1200&fm=jpg&q=100 1200w
+						`}
+						sizes="(max-width: 767px) 100vw, 1200px"
+						alt={ title } 
+					/>
 				</div>
 			}
 			{hashtags && hashtags.length > 0 &&
